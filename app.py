@@ -21,8 +21,8 @@ def basic():
 # 展示customer关系表的所有数据
 @app.route('/customer', methods=['POST', 'GET'])
 def customer():
-    customers = customer_list()
-    return render_template('basic.html', func="customer", customer_data=customers)
+    customer_data = customer_list()
+    return render_template('basic.html', func="customer", customer_data=customer_data)
 
 
 # noinspection SpellCheckingInspection 添加customer元组
@@ -79,6 +79,61 @@ def searchCustomer():
     customer_data = search_customer(customer_id, first_name, last_name,
                                     phone, email, birthdate, fitness_level)
     return render_template('basic.html', func="search_customer", customer_data=customer_data)
+
+
+# 展示trainer关系表的所有数据
+@app.route('/trainer', methods=['POST', 'GET'])
+def trainer():
+    trainer_data = trainer_list()
+    return render_template('basic.html', func="trainer", trainer_data=trainer_data)
+
+
+# noinspection SpellCheckingInspection 添加trainer元组
+@app.route('/addTrainer', methods=['POST'])
+def addTrainer():
+    # 赋予一个不重复的id
+    existing_ids = get_ids('trainer')
+    while True:
+        trainer_id = str(random.randint(1, 1000000))
+        if trainer_id not in existing_ids:
+            break
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    address = request.form['address']
+    phone = request.form['phone']
+    email = request.form['email']
+    add_trainer(trainer_id, first_name, last_name, address, phone, email)
+    # 添加完trainer，展示所有数据
+    return redirect(url_for('trainer'))
+
+
+# noinspection SpellCheckingInspection 通过id删除trainer元组
+@app.route('/deleteTrainer/<int:trainer_id>', methods=['POST'])
+def deleteTrainer(trainer_id):
+    delete_trainer(trainer_id)
+    # 删除后，展示所有数据
+    return redirect(url_for('trainer'))
+
+
+# noinspection SpellCheckingInspection  更新trainer的某一元组
+@app.route('/updateTrainer/<int:trainer_id>', methods=['POST'])
+def updateTrainer(trainer_id):
+    # 从前端获取更新的数据,前端通过JSON发送更新数据
+    updated_data = request.json
+    update_trainer(trainer_id, updated_data)
+    return jsonify('app.py: successfully!')
+
+
+# noinspection SpellCheckingInspection 查询符合要求的trainer元组
+@app.route('/searchTrainer', methods=['POST'])
+def searchTrainer():
+    trainer_id = request.form['trainer_id']
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    phone = request.form['phone']
+    email = request.form['email']
+    trainer_data = search_trainer(trainer_id, first_name, last_name,phone, email)
+    return render_template('basic.html', func="search_trainer", trainer_data=trainer_data)
 
 
 if __name__ == '__main__':

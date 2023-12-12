@@ -1,0 +1,90 @@
+/* insert */
+#insertTrainer h2 {
+    text-align: center;
+}
+#insertTrainer label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#insertTrainer input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#insertTrainer #address {
+    width: 576px;
+}
+
+#insertTrainer button {
+    font-size: 20px;
+    display: block; /* 将按钮元素设置为块级元素，使其独占一行 */
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
+
+/* search */
+#searchTrainer h2 {
+    text-align: center;
+}
+#searchTrainer label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#searchTrainer input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#searchTrainer button {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
+
+/* 模态窗属性 */
+#editTrainerModal {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/static/images/background01.jpg');
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    color: white; /* 设置为黑色字体 */
+}
+#editTrainerModal h2 {
+    text-align: center;
+}
+#editTrainerModal label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#editTrainerModal input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#editTrainerModal button {
+    width: 48%;
+    font-size: 20px;
+    /*display: block; 将按钮元素设置为块级元素，使其独占一行*/
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色 */
+}

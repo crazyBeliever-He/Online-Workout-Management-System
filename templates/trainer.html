@@ -1,7 +1,7 @@
 <!-- 注册用户 -->
-<div id="insertCustomer" style="display: none;">
-    <h2>Insert Customer</h2>
-    <form action="/addCustomer" method="post">
+<div id="insertTrainer" style="display: none;">
+    <h2>Insert Trainer</h2>
+    <form action="/addTrainer" method="post">
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required pattern=".{1,50}" title="1 ~ 50 characters">
         <label for="last_name">Last Name:</label>
@@ -12,23 +12,15 @@
         <input type="text" id="phone" name="phone" required pattern=".{1,25}" title="1 ~ 25 characters">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required pattern=".{1,25}" title="1 ~ 25 characters"><br>
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate">
-        <label for="fitness_level">Fitness Level:</label>
-        <input type="text" id="fitness_level" name="fitness_level" required pattern=".{1,15}" title="A,B,C,D,F"><br>
-        <label for="exercise_history">Exercise History:</label>
-        <input type="text" id="exercise_history" name="exercise_history"><br>
-        <label for="medical_history">Medical History:</label>
-        <input type="text" id="medical_history" name="medical_history"><br>
-        <button type="submit">Add Customer</button>
+        <button type="submit">Add Trainer</button>
     </form>
 </div>
 <!-- 查询用户 -->
-<div id="searchCustomer" style="display: none;">
-    <h2>Search Customer</h2>
-    <form action="/searchCustomer" method="post">
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" id="customer_id" name="customer_id"><br>
+<div id="searchTrainer" style="display: none;">
+    <h2>Search Trainer</h2>
+    <form action="/searchTrainer" method="post">
+        <label for="trainer_id">Trainer ID:</label>
+        <input type="text" id="trainer_id" name="trainer_id"><br>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name"><br>
         <label for="last_name">Last Name:</label>
@@ -37,16 +29,12 @@
         <input type="text" id="phone" name="phone"><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email"><br>
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate"><br>
-        <label for="fitness_level">Fitness Level:</label>
-        <input type="text" id="fitness_level" name="fitness_level"><br>
         <button type="submit">Search</button>
     </form>
 </div>
-<!-- customer table, 其中含有删除和修改按钮 -->
-<div id="customerTable" style="display: none;">
-    <h2>Customer List</h2>
+<!-- customer table, 其中含有!!删除!!和!!修改!!按钮 -->
+<div id="trainerTable" style="display: none;">
+    <h2>Trainer List</h2>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -55,77 +43,54 @@
             <th>Address</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>Birthdate</th>
-            <th>Exercise History</th>
-            <th>Fitness Level</th>
-            <th>Medical History</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
-        {% for customer in data %}
+        {% for trainer in trainer_data %}
             <!--这段代码的作用是将服务器端获取到的客户数据动态地填充到每一行的 data-* 属性中，以便在客户端（浏览器）的 JavaScript 中方便地获取并使用这些数据-->
             <!--如果没有这行代码，将失去在客户端（前端）通过 JavaScript 获取和操作每一行数据的能力。-->
-            <tr data-customer-id="{{ customer[0] }}"
-                data-first-name="{{ customer[1] }}"
-                data-last-name="{{ customer[2] }}"
-                data-address="{{ customer[3] }}"
-                data-phone="{{ customer[4] }}"
-                data-email="{{ customer[5] }}"
-                data-birthdate="{{ customer[6] }}"
-                data-exercise_history="{{ customer[7] }}"
-                data-fitness_level="{{ customer[8] }}"
-                data-medical_history="{{ customer[9] }}">
-                <td>{{ customer[0] }}</td>
-                <td>{{ customer[1] }}</td>
-                <td>{{ customer[2] }}</td>
-                <td>{{ customer[3] }}</td>
-                <td>{{ customer[4] }}</td>
-                <td>{{ customer[5] }}</td>
-                <td>{{ customer[6] }}</td>
-                <td>{{ customer[7] }}</td>
-                <td>{{ customer[8] }}</td>
-                <td>{{ customer[9] }}</td>
-
+            <tr data-trainer-id="{{ trainer[0] }}"
+                data-first-name="{{ trainer[1] }}"
+                data-last-name="{{ trainer[2] }}"
+                data-address="{{ trainer[3] }}"
+                data-phone="{{ trainer[4] }}"
+                data-email="{{ trainer[5] }}">
+                <td>{{ trainer[0] }}</td>
+                <td>{{ trainer[1] }}</td>
+                <td>{{ trainer[2] }}</td>
+                <td>{{ trainer[3] }}</td>
+                <td>{{ trainer[4] }}</td>
+                <td>{{ trainer[5] }}</td>
                 <td>
-                    <form action="/delete/{{ customer[0] }}" method="post">
+                    <form action="/deleteTrainer/{{ trainer[0] }}" method="post">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
-
                 <td>
                     <!--这段代码的作用是将服务器端获取到的客户数据动态地填充到每一行的 data-* 属性中，以便在客户端（浏览器）的 JavaScript 中方便地获取并使用这些数据-->
-                    <button class="edit-btn" onclick="openCustomerEditModal(this)">Edit</button>
+                    <button class="edit-btn" onclick="openTrainerEditModal(this)">Edit</button>
                 </td>
             </tr>
         {% endfor %}
     </table>
 </div>
-<!-- edit customer功能的模态窗 -->
-<div id="editCustomerModal" class="modal" style="display: none;">
+<!-- edit trainer功能的模态窗 -->
+<div id="editTrainerModal" class="modal" style="display: none;">
     <div class="modal-content">
-        <h2>Edit Customer</h2>
-        <form id="editForm">
-            <label for="edit_first_name">First Name:</label>
-            <input type="text" id="edit_first_name" name="first_name" required><br>
-            <label for="edit_last_name">Last Name:</label>
-            <input type="text" id="edit_last_name" name="last_name" required><br>
-            <label for="edit_address">Address:</label>
-            <input type="text" id="edit_address" name="address"><br>
-            <label for="edit_phone">Phone:</label>
-            <input type="text" id="edit_phone" name="phone"><br>
-            <label for="edit_email">Email:</label>
-            <input type="email" id="edit_email" name="email"><br>
-            <label for="edit_birthdate">Birthdate:</label>
-            <input type="date" id="edit_birthdate" name="birthdate"><br>
-            <label for="edit_fitness_level">Fitness Level:</label>
-            <input type="text" id="edit_fitness_level" name="fitness_level" required pattern=".{1,15}"
-                   title="A,B,C,D,F"><br>
-            <label for="edit_exercise_history">Exercise History:</label>
-            <input type="text" id="edit_exercise_history" name="exercise_history"><br>
-            <label for="edit_medical_history">Medical History:</label>
-            <input type="text" id="edit_medical_history" name="medical_history"><br>
-            <button type="button" onclick="updateCustomer()">Update Customer</button>
-            <button type="button" onclick="closeEditCustomerModal()">Cancel</button>
+        <h2>Edit Trainer</h2>
+        <form id="editTrainerForm">
+            <label for="edit_trainer_first_name">First Name:</label>
+            <input type="text" id="edit_trainer_first_name" name="first_name" required pattern=".{1,50}"><br>
+            <label for="edit_trainer_last_name">Last Name:</label>
+            <input type="text" id="edit_trainer_last_name" name="last_name" required pattern=".{1,50}"><br>
+            <label for="edit_trainer_address">Address:</label>
+            <input type="text" id="edit_trainer_address" name="address" pattern=".{0,255}"><br>
+            <label for="edit_trainer_phone">Phone:</label>
+            <input type="text" id="edit_trainer_phone" name="phone" required pattern=".{1,25}"><br>
+            <label for="edit_trainer_email">Email:</label>
+            <input type="email" id="edit_trainer_email" name="email" required pattern=".{1,25}"><br>
+            <button type="button" onclick="updateTrainer()">Update</button>
+            <button type="button" onclick="closeEditTrainerModal()">Cancel</button>
         </form>
     </div>
 </div>

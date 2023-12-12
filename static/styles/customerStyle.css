@@ -1,0 +1,101 @@
+/* insert */
+#insertCustomer h2 {
+    text-align: center;
+}
+#insertCustomer label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#insertCustomer input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#insertCustomer #address {
+    width: 576px;
+}
+#insertCustomer #exercise_history {
+    width: 576px;
+}
+#insertCustomer #birthdate {
+    width: 203px;
+}
+#insertCustomer #medical_history {
+    width: 576px;
+}
+#insertCustomer button {
+    font-size: 20px;
+    display: block; /* 将按钮元素设置为块级元素，使其独占一行 */
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
+
+/* search */
+#searchCustomer h2 {
+    text-align: center;
+}
+#searchCustomer label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#searchCustomer input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#searchCustomer #birthdate {
+    width: 203px;
+}
+#searchCustomer button {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
+
+/* 模态窗属性 */
+#editCustomerModal {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/static/images/background01.jpg');
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    color: white; /* 设置为黑色字体 */
+}
+#editCustomerModal h2 {
+    text-align: center;
+}
+#editCustomerModal label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#editCustomerModal input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#editCustomerModal button {
+    width: 48%;
+    font-size: 20px;
+    /*display: block; 将按钮元素设置为块级元素，使其独占一行*/
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色 */
+}
