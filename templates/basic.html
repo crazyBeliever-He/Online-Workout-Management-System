@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="/static/images/icon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/images/icon.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/basicStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/insertCustomerStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/searchCustomerStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/editCustomerModalStyle.css') }}">
+    <script src="{{ url_for('static', filename='scripts/editFunc.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/showOrHideFunc.js') }}"></script>
+</head>
+
+<body>
+    <h1>Online Workout Management System</h1>
+    <!-- 顶部功能模块,每个按钮关联一个功能 -->
+    {% include 'top_meu.html' %}
+    <!-- 用户 -->
+    {% include 'customer.html' %}
+    <!-- 展示什么表格 -->
+    {% if func=="customer" or func=="search_customer" %}
+        <script>customerTableVisibility()</script>
+    {% else %}
+
+    {% endif %}
+</body>
+</html>

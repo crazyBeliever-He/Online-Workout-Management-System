@@ -1,0 +1,25 @@
+#searchCustomer h2 {
+    text-align: center;
+}
+#searchCustomer label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+}
+#searchCustomer input {
+    width: 200px;
+    margin-bottom: 20px;
+}
+#searchCustomer #birthdate {
+    width: 203px;
+}
+#searchCustomer button {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
