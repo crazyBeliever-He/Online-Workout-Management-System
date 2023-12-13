@@ -132,7 +132,7 @@ def searchTrainer():
     last_name = request.form['last_name']
     phone = request.form['phone']
     email = request.form['email']
-    trainer_data = search_trainer(trainer_id, first_name, last_name,phone, email)
+    trainer_data = search_trainer(trainer_id, first_name, last_name, phone, email)
     return render_template('basic.html', func="search_trainer", trainer_data=trainer_data)
 
 
