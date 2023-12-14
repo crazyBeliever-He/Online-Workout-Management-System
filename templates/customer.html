@@ -9,13 +9,13 @@
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" pattern=".{0,255}" title="0 ~ 255 characters"><br>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" required pattern=".{1,25}" title="1 ~ 25 characters">
+        <input type="text" id="phone" name="phone" required pattern="\d{1,25}" title="1 ~ 25 numbers">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required pattern=".{1,25}" title="1 ~ 25 characters"><br>
         <label for="birthdate">Birthdate:</label>
         <input type="date" id="birthdate" name="birthdate">
         <label for="fitness_level">Fitness Level:</label>
-        <input type="text" id="fitness_level" name="fitness_level" required pattern=".{1,15}" title="A,B,C,D,F"><br>
+        <input type="text" id="fitness_level" name="fitness_level" required pattern="[A-F]" title="Only A, B, C, D, or F"><br>
         <label for="exercise_history">Exercise History:</label>
         <input type="text" id="exercise_history" name="exercise_history"><br>
         <label for="medical_history">Medical History:</label>
@@ -28,19 +28,19 @@
     <h2>Search Customer</h2>
     <form action="/searchCustomer" method="post">
         <label for="customer_id">Customer ID:</label>
-        <input type="text" id="customer_id" name="customer_id" pattern=".{0,10}" title="0 ~ 10 characters"><br>
+        <input type="text" id="customer_id" name="customer_id" pattern="\d{0,10}" title="0 ~ 10 numbers"><br>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" pattern=".{0,50}" title="0 ~ 50 characters"><br>
         <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" pattern=".{0,255}" title="0 ~ 255 characters"><br>
+        <input type="text" id="last_name" name="last_name" pattern=".{0,50}" title="0 ~ 50 characters"><br>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" pattern=".{0,25}" title="0 ~ 25 characters"><br>
+        <input type="text" id="phone" name="phone" pattern="\d{0,25}" title="0 ~ 25 numbers"><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" pattern=".{0,25}" title="0 ~ 25 characters"><br>
         <label for="birthdate">Birthdate:</label>
         <input type="date" id="birthdate" name="birthdate"><br>
         <label for="fitness_level">Fitness Level:</label>
-        <input type="text" id="fitness_level" name="fitness_level" pattern=".{0,15}" title="A,B,C,D,F"><br>
+        <input type="text" id="fitness_level" name="fitness_level" pattern="[A-F]" title="Only A, B, C, D, or F"><br>
         <button type="submit">Search</button>
     </form>
 </div>
@@ -110,14 +110,14 @@
             <label for="edit_customer_address">Address:</label>
             <input type="text" id="edit_customer_address" name="address" pattern=".{0,255}"><br>
             <label for="edit_customer_phone">Phone:</label>
-            <input type="text" id="edit_customer_phone" name="phone" required pattern=".{1,25}"><br>
+            <input type="text" id="edit_customer_phone" name="phone" required pattern="\d{1,25}"><br>
             <label for="edit_customer_email">Email:</label>
             <input type="email" id="edit_customer_email" name="email" required pattern=".{1,25}"><br>
             <label for="edit_customer_birthdate">Birthdate:</label>
             <input type="date" id="edit_customer_birthdate" name="birthdate"><br>
             <label for="edit_customer_fitness_level">Fitness Level:</label>
-            <input type="text" id="edit_customer_fitness_level" name="fitness_level" required pattern=".{1,15}"
-                   title="A,B,C,D,F"><br>
+            <input type="text" id="edit_customer_fitness_level" name="fitness_level" required pattern="[A-F]"
+                   title="Only A,B,C,D or F"><br>
             <label for="edit_customer_exercise_history">Exercise History:</label>
             <input type="text" id="edit_customer_exercise_history" name="exercise_history"><br>
             <label for="edit_customer_medical_history">Medical History:</label>

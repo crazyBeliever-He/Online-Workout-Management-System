@@ -21,6 +21,7 @@ def add_trainer(trainer_id, first_name, last_name, address, phone, email):
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def delete_trainer(trainer_id):
@@ -29,6 +30,7 @@ def delete_trainer(trainer_id):
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def update_trainer(trainer_id, updated_data):
@@ -41,6 +43,7 @@ def update_trainer(trainer_id, updated_data):
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def search_trainer(trainer_id, first_name, last_name, phone, email):

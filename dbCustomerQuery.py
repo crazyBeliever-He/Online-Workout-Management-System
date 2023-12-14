@@ -32,6 +32,8 @@ def customer_list():
 
 def add_customer(customer_id, first_name, last_name, address, phone, email, birthdate,
                  fitness_level, exercise_history, medical_history):
+    if fitness_level not in ['A', 'B', 'C', 'D', 'F']:
+        return "Invalid Fitness Level"
     if not address:
         address = None
     if not birthdate:
@@ -50,6 +52,7 @@ def add_customer(customer_id, first_name, last_name, address, phone, email, birt
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def delete_customer(customer_id):
@@ -58,10 +61,10 @@ def delete_customer(customer_id):
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def update_customer(customer_id, updated_data):
-    # ！！！！！！！首先检查数据合法性
     # 构建 SET 部分
     set_values = ', '.join([f"{key}=%s" for key in updated_data.keys()])
     # 构建 SQL 查询语句
@@ -71,10 +74,13 @@ def update_customer(customer_id, updated_data):
     with connect_db() as conn, conn.cursor() as cursor:
         cursor.execute(query, values)
         conn.commit()
+    return "Successfully"
 
 
 def search_customer(customer_id, first_name, last_name, phone, email, birthdate, fitness_level):
     # 构建查询语句
+    if fitness_level not in ['A', 'B', 'C', 'D', 'F']:
+        return "Invalid Fitness Level"
     query = 'SELECT * FROM customer WHERE 1=1'
     conditions = []
     values = []

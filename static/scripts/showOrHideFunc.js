@@ -1,6 +1,7 @@
 // 全局变量，用于保证仅有一个区域/功能可见
 function allInvisible() {
-    const areas = ['customerTable', 'insertCustomer', 'searchCustomer', 'trainerTable', 'insertTrainer', 'searchTrainer'];
+    const areas = ['customerTable', 'insertCustomer', 'searchCustomer', 'trainerTable', 'insertTrainer',
+                            'searchTrainer', 'transactionTable', 'insertTransaction', 'searchTransaction'];
     areas.forEach(area => {
         const element = document.getElementById(area);
         if (element) {
@@ -60,5 +61,32 @@ function searchTrainerVisibility() {
     const searchTrainer = document.getElementById('searchTrainer');
     if (searchTrainer) {
         searchTrainer.style.display = 'block';
+    }
+}
+
+// 设置transaction table 是否可见
+function transactionTableVisibility() {
+    allInvisible();
+    const transactionTable = document.getElementById('transactionTable');
+    if (transactionTable) {
+        transactionTable.style.display = 'block';
+    }
+}
+
+// 设置insert trainer 是否可见
+function insertTransactionVisibility() {
+    allInvisible();
+    const insertTransaction = document.getElementById('insertTransaction');
+    if (insertTransaction) {
+        insertTransaction.style.display = 'block';
+    }
+}
+
+// 设置search trainer 是否可见
+function searchTransactionVisibility() {
+    allInvisible();
+    const searchTransaction = document.getElementById('searchTransaction');
+    if (searchTransaction) {
+        searchTransaction.style.display = 'block';
     }
 }

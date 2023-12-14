@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/basicStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/customerStyle.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/trainerStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/transactionStyle.css') }}">
     <script src="{{ url_for('static', filename='scripts/editCustomerFunc.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/editTrainerFunc.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/showOrHideFunc.js') }}"></script>
@@ -30,6 +31,12 @@
         <script>customerTableVisibility()</script>
     {% elif  func=="trainer" or func=="search_trainer" %}
         <script>trainerTableVisibility()</script>
+    {% elif  func=="transaction" or func=="search_transaction" %}
+        <script>transactionTableVisibility()</script>
+    {% else %}
+        <script>
+            alert("Error: {{ func }}");
+        </script>
     {% endif %}
 </body>
 </html>
