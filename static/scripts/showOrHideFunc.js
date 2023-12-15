@@ -1,7 +1,8 @@
 // 全局变量，用于保证仅有一个区域/功能可见
 function allInvisible() {
     const areas = ['customerTable', 'insertCustomer', 'searchCustomer', 'trainerTable', 'insertTrainer',
-                            'searchTrainer', 'transactionTable', 'insertTransaction', 'searchTransaction'];
+                            'searchTrainer', 'transactionTable', 'insertTransaction', 'searchTransaction',
+                            'overAge', 'overAgeResult', "fitGold"];
     areas.forEach(area => {
         const element = document.getElementById(area);
         if (element) {
@@ -88,5 +89,26 @@ function searchTransactionVisibility() {
     const searchTransaction = document.getElementById('searchTransaction');
     if (searchTransaction) {
         searchTransaction.style.display = 'block';
+    }
+}
+
+//设置over an age 功能是否可见
+function overAgeVisibility(){
+    allInvisible();
+    const overAge = document.getElementById('overAge');
+    if (overAge) {
+        overAge.style.display = 'block';
+    }
+    const overAgeResult = document.getElementById('overAgeResult');
+    if (overAgeResult) {
+        overAgeResult.style.display = 'block';
+    }
+}
+//设置fit and gold 功能是否可见
+function fitGoldVisibility(){
+    allInvisible();
+    const fitGold = document.getElementById('fitGold');
+    if (fitGold) {
+        fitGold.style.display = 'block';
     }
 }

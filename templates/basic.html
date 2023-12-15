@@ -26,17 +26,19 @@
     {% include 'trainer.html' %}
     <!-- 事务 -->
     {% include 'transaction.html' %}
-    <!-- 展示什么表格 -->
+    <!-- 任务表格 -->
+    {% include 'procedure.html' %}
+    <!-- 展示什么内容 -->
     {% if func=="customer" or func=="search_customer" %}
         <script>customerTableVisibility()</script>
     {% elif  func=="trainer" or func=="search_trainer" %}
         <script>trainerTableVisibility()</script>
     {% elif  func=="transaction" or func=="search_transaction" %}
         <script>transactionTableVisibility()</script>
-    {% else %}
-        <script>
-            alert("Error: {{ func }}");
-        </script>
+    {% elif func=="over_an_age" %}
+        <script>overAgeVisibility()</script>
+    {% elif func=="fit_and_gold" %}
+        <script>fitGoldVisibility()</script>
     {% endif %}
 </body>
 </html>

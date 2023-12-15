@@ -79,8 +79,6 @@ def update_customer(customer_id, updated_data):
 
 def search_customer(customer_id, first_name, last_name, phone, email, birthdate, fitness_level):
     # 构建查询语句
-    if fitness_level not in ['A', 'B', 'C', 'D', 'F']:
-        return "Invalid Fitness Level"
     query = 'SELECT * FROM customer WHERE 1=1'
     conditions = []
     values = []
@@ -103,6 +101,8 @@ def search_customer(customer_id, first_name, last_name, phone, email, birthdate,
         conditions.append("birthdate = %s")
         values.append(birthdate)
     if fitness_level:
+        if fitness_level not in ['A', 'B', 'C', 'D', 'F']:
+            return "Invalid Fitness Level"
         conditions.append("fitnesslevel = %s")
         values.append(fitness_level)
     if conditions:

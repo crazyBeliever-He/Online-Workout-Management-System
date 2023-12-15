@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 from dbCustomerQuery import *
 from dbTrainerQuery import *
 from dbTransactionQuery import *
+from procedureOrFunction import *
 
 app = Flask(__name__)
 app.config['DATABASE_URI'] = 'postgresql://believer:728683007@192.168.56.101:5432/exp3and4'
@@ -182,6 +183,33 @@ def searchTransaction():
     if transaction_data == "Invalid Program Level":
         return render_template('basic.html', func=transaction_data)
     return render_template('basic.html', func="search_transaction", transaction_data=transaction_data)
+
+
+# 调用一个名为 over an age 的过程
+@app.route('/overAge', methods=['POST'])
+def overAge():
+    age = int(request.form['over_an_age'])
+    over_age_data = over_an_age(age)
+    # 返回结果
+    if over_age_data == "Wrong Age":
+        return render_template('basic.html', func=over_age_data)
+    return render_template('basic.html', func="over_an_age", over_age_data=over_age_data, age_data=age)
+
+
+# 调用一个名为 fit and gold 的过程
+@app.route('/fitGold', methods=['POST'])
+def fitGold():
+    fit_gold_data = fit_and_gold()
+    # 返回结果
+    return render_template('basic.html', func="fit_and_gold", fit_gold_data=fit_gold_data)
+
+
+# 调用一个名为 clients per trainer 的过程
+@app.route('/clientNumber', methods=['POST'])
+def clientNumber():
+    clients_per_trainer_data = clients_per_trainer()
+    # 返回结果
+    return render_template('basic.html', func="clients_per_trainer", clients_per_trainer_data=clients_per_trainer_data)
 
 
 if __name__ == '__main__':

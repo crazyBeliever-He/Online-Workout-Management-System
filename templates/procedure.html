@@ -1,0 +1,58 @@
+<!-- over an age -->
+<div id="overAge" style="display: none;">
+    <h2 id="overAgeTitle">Over An Age</h2>
+    <form action="/overAge" method="post">
+        <label for="over_an_age">Age:</label>
+        <input type="text" id="over_an_age" name="over_an_age" required pattern="\d{1,4}">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div id="overAgeResult" style="display: none;">
+    <h2 id="overAgeResultTitle">Age Over {{ age_data }} Years Old</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+        </tr>
+        {% for customer in over_age_data %}
+            <tr data-customer-id="{{ customer[0] }}"
+                data-first-name="{{ customer[1] }}"
+                data-last-name="{{ customer[2] }}"
+                data-email="{{ customer[3] }}"
+                data-birthdate="{{ customer[4] }}">
+                <td>{{ customer[0] }}</td>
+                <td>{{ customer[1] }}</td>
+                <td>{{ customer[2] }}</td>
+                <td>{{ customer[3] }}</td>
+                <td>{{ customer[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- fit and gold -->
+<div id="fitGold" style="display: none;">
+    <h2 id="fitGoldTitle">Fit And Gold Customer</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        {% for customer in fit_gold_data %}
+            <tr data-customer-id="{{ customer[0] }}"
+                data-first-name="{{ customer[1] }}"
+                data-last-name="{{ customer[2] }}"
+                data-email="{{ customer[3] }}">
+                <td>{{ customer[0] }}</td>
+                <td>{{ customer[1] }}</td>
+                <td>{{ customer[2] }}</td>
+                <td>{{ customer[3] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
