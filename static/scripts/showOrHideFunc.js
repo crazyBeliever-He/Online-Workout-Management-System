@@ -2,7 +2,7 @@
 function allInvisible() {
     const areas = ['customerTable', 'insertCustomer', 'searchCustomer', 'trainerTable', 'insertTrainer',
                             'searchTrainer', 'transactionTable', 'insertTransaction', 'searchTransaction',
-                            'overAge', 'overAgeResult', "fitGold"];
+                            'overAge', 'overAgeResult', 'fitGold', 'clientNumber'];
     areas.forEach(area => {
         const element = document.getElementById(area);
         if (element) {
@@ -110,5 +110,13 @@ function fitGoldVisibility(){
     const fitGold = document.getElementById('fitGold');
     if (fitGold) {
         fitGold.style.display = 'block';
+    }
+}
+
+function clientNumberVisibility(){
+    allInvisible();
+    const clientNumber = document.getElementById('clientNumber');
+    if (clientNumber) {
+        clientNumber.style.display = 'block';
     }
 }

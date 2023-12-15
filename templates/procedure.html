@@ -56,3 +56,24 @@
         {% endfor %}
     </table>
 </div>
+
+<!-- clients per trainer -->
+<div id="clientNumber" style="display: none;">
+    <h2 id="clientNumberTitle">Fit And Gold Customer</h2>
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Client Number</th>
+        </tr>
+        {% for customer in clients_per_trainer_data %}
+            <tr data-first-name="{{ customer[1] }}"
+                data-last-name="{{ customer[2] }}"
+                data-client-number="{{ customer[3] }}">
+                <td>{{ customer[0] }}</td>
+                <td>{{ customer[1] }}</td>
+                <td>{{ customer[2] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
