@@ -108,7 +108,7 @@ def addTrainer():
     address = request.form['address']
     phone = request.form['phone']
     email = request.form['email']
-    result = add_trainer(trainer_id, first_name, last_name, address, phone, email)
+    add_trainer(trainer_id, first_name, last_name, address, phone, email)
     # 添加完trainer，展示所有数据
     return redirect(url_for('trainer'))
 
