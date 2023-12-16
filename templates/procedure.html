@@ -66,13 +66,66 @@
             <th>Last Name</th>
             <th>Client Number</th>
         </tr>
-        {% for customer in clients_per_trainer_data %}
-            <tr data-first-name="{{ customer[1] }}"
-                data-last-name="{{ customer[2] }}"
-                data-client-number="{{ customer[3] }}">
-                <td>{{ customer[0] }}</td>
-                <td>{{ customer[1] }}</td>
-                <td>{{ customer[2] }}</td>
+        {% for trainer in clients_per_trainer_data %}
+            <tr data-first-name="{{ trainer[1] }}"
+                data-last-name="{{ trainer[2] }}"
+                data-client-number="{{ trainer[3] }}">
+                <td>{{ trainer[0] }}</td>
+                <td>{{ trainer[1] }}</td>
+                <td>{{ trainer[2] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- trainer monthly money report -->
+<div id="moneyReport" style="display: none;">
+    <h2 id="moneyReportTitle">Fit And Gold Customer</h2>
+    <table border="1">
+        <tr>
+            <th>T.First Name</th>
+            <th>T.Last Name</th>
+            <th>C.First Name</th>
+            <th>C.Last Name</th>
+            <th>Program Level</th>
+            <th>Monthly Fee</th>
+            <th>Total Monthly Fee</th>
+        </tr>
+        {% for information in trainer_money_report_data %}
+            <tr data-t_first-name="{{ information[0] }}"
+                data-t_last-name="{{ information[1] }}"
+                data-c_first-name="{{ information[2] }}"
+                data-c_last-name="{{ information[3] }}"
+                data-program-level="{{ information[4] }}"
+                data-monthly-fee="{{ information[5] }}"
+                data-total-monthly-fee="{{ information[6] }}">
+                <td>{{ information[0] }}</td>
+                <td>{{ information[1] }}</td>
+                <td>
+                    {% if information[2] is not none %}
+                        {{ information[2] }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if information[3] is not none %}
+                        {{ information[3] }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if information[4] is not none %}
+                        {{ information[4] }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if information[5] is not none %}
+                        {{ information[5] }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if information[6] is not none %}
+                        {{ information[6] }}
+                    {% endif %}
+                </td>
             </tr>
         {% endfor %}
     </table>

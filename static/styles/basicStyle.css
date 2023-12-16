@@ -43,4 +43,6 @@ h2 {
     margin-top: 40px; /* 调整标题与页面顶部的距离 */
     text-align: center;
 }
-
+tr:hover {
+    background-color: #3fa4e8; /* 或者你喜欢的其他颜色 */
+}

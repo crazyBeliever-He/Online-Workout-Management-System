@@ -181,6 +181,7 @@ def searchTransaction():
     assignment_date = request.form['assignment_date']
     transaction_data = search_transaction(customer_id, trainer_id, program_level, assignment_date)
     if transaction_data == "Invalid Program Level":
+        print("Invalid Program Level")
         return render_template('basic.html', func=transaction_data)
     return render_template('basic.html', func="search_transaction", transaction_data=transaction_data)
 
@@ -196,7 +197,7 @@ def overAge():
     return render_template('basic.html', func="over_an_age", over_age_data=over_age_data, age_data=age)
 
 
-# 调用一个名为 fit and gold 的过程
+# 调用一个名为 fit and gold 的函数
 @app.route('/fitGold', methods=['POST'])
 def fitGold():
     fit_gold_data = fit_and_gold()
@@ -204,12 +205,31 @@ def fitGold():
     return render_template('basic.html', func="fit_and_gold", fit_gold_data=fit_gold_data)
 
 
-# 调用一个名为 clients per trainer 的过程
+# 调用一个名为 clients per trainer 的函数
 @app.route('/clientNumber', methods=['POST'])
 def clientNumber():
     clients_per_trainer_data = clients_per_trainer()
     # 返回结果
     return render_template('basic.html', func="clients_per_trainer", clients_per_trainer_data=clients_per_trainer_data)
+
+
+# 调用一个名为delete_young_members 的过程
+@app.route('/deleteYoung', methods=['POST'])
+def deleteYoung():
+    result = delete_young_members()
+    # 返回结果
+    if result != "Successfully":
+        return render_template('basic.html', func=result)
+    return redirect(url_for('customer'))
+
+
+# 调用一个名为 monthly money report 的函数
+@app.route('/moneyReport', methods=['POST'])
+def moneyReport():
+    trainer_money_report_data = monthly_money_bring_in_by_rainer()
+    # 返回结果
+    return render_template('basic.html', func="trainer_money_report", trainer_money_report_data=trainer_money_report_data)
+
 
 
 if __name__ == '__main__':

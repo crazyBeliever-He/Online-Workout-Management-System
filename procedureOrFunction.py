@@ -29,3 +29,19 @@ def clients_per_trainer():
         cursor.execute(query)
         data = cursor.fetchall()
     return data
+
+
+def delete_young_members():
+    query = 'CALL delete_young_members()'
+    with connect_db() as conn, conn.cursor() as cursor:
+        cursor.execute(query)
+        conn.commit()
+    return "Successfully"
+
+
+def monthly_money_bring_in_by_rainer():
+    query = 'select * from monthly_money_report() order by trainerfirstname, trainerlastname, totalmonthlyfee DESC'
+    with connect_db() as conn, conn.cursor() as cursor:
+        cursor.execute(query)
+        data = cursor.fetchall()
+    return data

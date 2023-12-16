@@ -13,7 +13,7 @@ def transaction_list():
 
 
 def add_transaction(customer_id, trainer_id, program_level, monthly_fee, assignment_date):
-    if program_level not in ['gold', 'silver', 'bronze']:
+    if program_level not in ['Gold', 'Silver', 'Bronze']:
         return "Invalid Program Level"
     query = '''INSERT INTO transaction (customerid, trainerid, programlevel, monthlyfee, assignmentdate)
                 VALUES (%s, %s, %s, %s, %s)'''
@@ -35,8 +35,9 @@ def delete_transaction(customer_id, trainer_id):
 
 # noinspection SpellCheckingInspection
 def search_transaction(customer_id, trainer_id, program_level, assignment_date):
-    if program_level not in ['gold', 'silver', 'bronze']:
-        return "Invalid Program Level"
+    if program_level:
+        if program_level not in ['Gold', 'Silver', 'Bronze']:
+            return "Invalid Program Level"
     # 构建查询语句
     query = 'SELECT * FROM transaction WHERE 1=1'
     conditions = []

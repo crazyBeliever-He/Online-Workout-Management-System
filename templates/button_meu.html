@@ -2,26 +2,32 @@
     <form action="/customer" method="post" style="display: inline;">
         <button type="submit" onclick="customerTableVisibility()">Customer</button>
     </form>
-    <button onclick="insertCustomerVisibility()">Insert Customer</button>
-    <button onclick="searchCustomerVisibility()">Search Customer</button>
+    <button onclick="customerFunctionVisibility()">Customer Function</button>
     <form action="/trainer" method="post" style="display: inline;">
         <button type="submit" onclick="trainerTableVisibility()">Trainer</button>
     </form>
-    <button onclick="insertTrainerVisibility()">Insert Trainer</button>
-    <button onclick="searchTrainerVisibility()">Search Trainer</button>
+    <button onclick="trainerFunctionVisibility()">Trainer Function</button>
     <form action="/transaction" method="post" style="display: inline;">
         <button type="submit" onclick="transactionTableVisibility()">Transaction</button>
     </form>
-    <button onclick="insertTransactionVisibility()">Insert Transaction</button>
-    <button onclick="searchTransactionVisibility()">Search Transaction</button><br>
+    <button onclick="transactionFunctionVisibility()">Transaction Function</button><br>
 
-
-
+    <!-- over an age -->
     <button onclick="overAgeVisibility()">Over an Age</button>
+    <!-- fit and gold customers -->
     <form action="/fitGold" method="post" style="display: inline;">
-        <button onclick="fitGoldVisibility()">Fit And Gold Customer</button>
+        <button onclick="fitGoldVisibility()">Fit And Gold Customers</button>
     </form>
+    <!-- clients per trainer -->
     <form action="/clientNumber" method="post" style="display: inline;">
         <button onclick="clientNumberVisibility()">Clients Per Trainer</button>
+    </form>
+    <!-- delete young customers -->
+    <form action="/deleteYoung" method="post" style="display: inline;">
+        <button>Delete Young Members</button>
+    </form>
+    <!-- monthly money report -->
+    <form action="/moneyReport" method="post" style="display: inline;">
+        <button onclick="moneyReportVisibility()">Monthly Money Report</button>
     </form>
 </div>

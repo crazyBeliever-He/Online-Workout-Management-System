@@ -2,7 +2,7 @@
 function allInvisible() {
     const areas = ['customerTable', 'insertCustomer', 'searchCustomer', 'trainerTable', 'insertTrainer',
                             'searchTrainer', 'transactionTable', 'insertTransaction', 'searchTransaction',
-                            'overAge', 'overAgeResult', 'fitGold', 'clientNumber'];
+                            'overAge', 'overAgeResult', 'fitGold', 'clientNumber', 'moneyReport'];
     areas.forEach(area => {
         const element = document.getElementById(area);
         if (element) {
@@ -20,18 +20,13 @@ function customerTableVisibility() {
     }
 }
 
-// 设置insert customer 是否可见
-function insertCustomerVisibility() {
+// 设置customer function 是否可见
+function customerFunctionVisibility() {
     allInvisible();
     const insertCustomer = document.getElementById('insertCustomer');
     if (insertCustomer) {
         insertCustomer.style.display = 'block';
     }
-}
-
-// 设置search customer 是否可见
-function searchCustomerVisibility() {
-    allInvisible();
     const searchCustomer = document.getElementById('searchCustomer');
     if (searchCustomer) {
         searchCustomer.style.display = 'block';
@@ -47,18 +42,13 @@ function trainerTableVisibility() {
     }
 }
 
-// 设置insert trainer 是否可见
-function insertTrainerVisibility() {
+// 设置 trainer function 是否可见
+function trainerFunctionVisibility() {
     allInvisible();
     const insertTrainer = document.getElementById('insertTrainer');
     if (insertTrainer) {
         insertTrainer.style.display = 'block';
     }
-}
-
-// 设置search trainer 是否可见
-function searchTrainerVisibility() {
-    allInvisible();
     const searchTrainer = document.getElementById('searchTrainer');
     if (searchTrainer) {
         searchTrainer.style.display = 'block';
@@ -74,18 +64,13 @@ function transactionTableVisibility() {
     }
 }
 
-// 设置insert trainer 是否可见
-function insertTransactionVisibility() {
+// 设置 transaction function 是否可见
+function transactionFunctionVisibility() {
     allInvisible();
     const insertTransaction = document.getElementById('insertTransaction');
     if (insertTransaction) {
         insertTransaction.style.display = 'block';
     }
-}
-
-// 设置search trainer 是否可见
-function searchTransactionVisibility() {
-    allInvisible();
     const searchTransaction = document.getElementById('searchTransaction');
     if (searchTransaction) {
         searchTransaction.style.display = 'block';
@@ -118,5 +103,12 @@ function clientNumberVisibility(){
     const clientNumber = document.getElementById('clientNumber');
     if (clientNumber) {
         clientNumber.style.display = 'block';
+    }
+}
+function moneyReportVisibility(){
+    allInvisible();
+    const moneyReport = document.getElementById('moneyReport');
+    if (moneyReport) {
+        moneyReport.style.display = 'block';
     }
 }
