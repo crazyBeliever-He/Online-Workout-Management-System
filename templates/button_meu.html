@@ -1,17 +1,12 @@
-<div class="top-menu">
-    <form action="/customer" method="post" style="display: inline;">
-        <button type="submit" onclick="customerTableVisibility()">Customer</button>
-    </form>
-    <button onclick="customerFunctionVisibility()">Customer Function</button>
-    <form action="/trainer" method="post" style="display: inline;">
-        <button type="submit" onclick="trainerTableVisibility()">Trainer</button>
-    </form>
-    <button onclick="trainerFunctionVisibility()">Trainer Function</button>
-    <form action="/transaction" method="post" style="display: inline;">
-        <button type="submit" onclick="transactionTableVisibility()">Transaction</button>
-    </form>
-    <button onclick="transactionFunctionVisibility()">Transaction Function</button><br>
-
+<div class="top-menu" id="basic-menu">
+    <!-- 用户 -->
+    <button onclick="customerVisibility()">Customer</button>
+    <!-- 教练 -->
+    <button onclick="trainerVisibility()">Trainer</button>
+    <!-- 事务 -->
+    <button onclick="transactionVisibility()">Transaction Function</button>
+</div>
+<div class="top-menu" id="func-menu">
     <!-- over an age -->
     <button onclick="overAgeVisibility()">Over an Age</button>
     <!-- fit and gold customers -->

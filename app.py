@@ -228,8 +228,8 @@ def deleteYoung():
 def moneyReport():
     trainer_money_report_data = monthly_money_bring_in_by_rainer()
     # 返回结果
-    return render_template('basic.html', func="trainer_money_report", trainer_money_report_data=trainer_money_report_data)
-
+    return render_template('basic.html', func="trainer_money_report",
+                           trainer_money_report_data=trainer_money_report_data)
 
 
 if __name__ == '__main__':

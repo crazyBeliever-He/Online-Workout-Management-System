@@ -21,6 +21,9 @@ body::before {
     background-position: center;
     background-repeat: no-repeat;
 }
+.top-menu {
+    text-align: center;
+}
 .top-menu button {
     font-size: 20px;
     margin: 0 auto;
@@ -31,18 +34,21 @@ body::before {
     color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
 }
 .top-menu button:hover {
-    color: #0090ff; /* 鼠标悬停时字体颜色变为红色 */
+    color: #9c3838; /* 鼠标悬停时字体颜色变为 */
     text-decoration: underline; /* 鼠标悬停时添加下划线 */
-    background-color: rgba(224, 224, 224, 0.87); /* 鼠标悬停时背景色变为浅灰色 */
+    background-color: rgba(248, 245, 245, 0); /* 鼠标悬停时背景色变为 */
+}
+#basic-menu button{
+    margin: 10px 15px 20px 15px; /* 上右下左 */
 }
 h1 {
-    margin-top: 70px; /* 调整标题与页面顶部的距离 */
+    margin-top: 70px; /* 元素上方与其上一个兄弟元素之间的空间 */
     text-align: center;
 }
 h2 {
-    margin-top: 40px; /* 调整标题与页面顶部的距离 */
+    margin-top: 40px; /* 元素上方与其上一个兄弟元素之间的空间 */
     text-align: center;
 }
 tr:hover {
-    background-color: #3fa4e8; /* 或者你喜欢的其他颜色 */
+    background-color: #71bdf1; /* 或者你喜欢的其他颜色 */
 }

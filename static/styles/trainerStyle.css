@@ -1,4 +1,19 @@
-/* insert */
+/* trainer */
+#Trainer button {
+    font-size: 20px;
+    /* display: block; 将按钮元素设置为块级元素，使其独占一行 */
+    margin-top: 20px; /* 调整按钮与上一个区域的间隔 */
+    background-color: transparent; /* 设置透明背景 */
+    /*border: none;  去除边框 */
+    cursor: pointer;
+    color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
+}
+#Trainer button:hover {
+    color: #0c50b8; /* 鼠标悬停时字体颜色变为 */
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */
+    background-color: rgba(248, 245, 245, 0); /* 鼠标悬停时背景色变为 */
+}
+/* insert trainer */
 #insertTrainer h2 {
     text-align: center;
 }
@@ -26,7 +41,7 @@
     color: white; /* 设置文本颜色，以便可见，您可以根据需要调整 */
 }
 
-/* search */
+/* search trainer */
 #searchTrainer h2 {
     text-align: center;
 }
