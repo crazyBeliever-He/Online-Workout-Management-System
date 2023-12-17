@@ -2,10 +2,16 @@
 # 执行query代码，还会检查数据的合法性!!!!!!!!!!!!!!!!!!数据合法性还没做，并且没有反馈
 import psycopg2
 from flask import current_app
+import re
 
 
 def connect_db():
     return psycopg2.connect(current_app.config['DATABASE_URI'])
+
+
+def extract_numbers_from_string(s):
+    numbers = re.findall(r'\d+', s)
+    return int(numbers[0]) if numbers else None
 
 
 def get_ids(table):
@@ -19,7 +25,8 @@ def get_ids(table):
         with connect_db() as conn, conn.cursor() as cursor:
             cursor.execute(query)
             data = cursor.fetchall()
-    return data
+    result = [str(extract_numbers_from_string(str(exit_id[0]))) for exit_id in data]
+    return result
 
 
 def customer_list():

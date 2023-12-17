@@ -36,6 +36,8 @@ def addCustomer():
         customer_id = str(random.randint(1, 1000000))
         if customer_id not in existing_ids:
             break
+    print(customer_id)
+    print(existing_ids[0])
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     address = request.form['address']

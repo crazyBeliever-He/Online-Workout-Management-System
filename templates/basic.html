@@ -43,7 +43,7 @@
         <script>clientNumberVisibility()</script>
     {% elif func=="trainer_money_report" %}
         <script>moneyReportVisibility()</script>
-    {% else %}
+    {% elif func %}
         <div id="error_case">
             <p>Error:{{ func }}. Please try again.</p>
         </div>
