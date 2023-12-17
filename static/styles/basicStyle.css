@@ -21,6 +21,17 @@ body::before {
     background-position: center;
     background-repeat: no-repeat;
 }
+h1 {
+    margin-top: 70px; /* 元素上方与其上一个兄弟元素之间的空间 */
+    text-align: center;
+}
+h2 {
+    margin-top: 40px; /* 元素上方与其上一个兄弟元素之间的空间 */
+    text-align: center;
+}
+tr:hover {
+    background-color: #71bdf1; /* 或者你喜欢的其他颜色 */
+}
 .top-menu {
     text-align: center;
 }
@@ -41,14 +52,11 @@ body::before {
 #basic-menu button{
     margin: 10px 15px 20px 15px; /* 上右下左 */
 }
-h1 {
-    margin-top: 70px; /* 元素上方与其上一个兄弟元素之间的空间 */
-    text-align: center;
-}
-h2 {
-    margin-top: 40px; /* 元素上方与其上一个兄弟元素之间的空间 */
-    text-align: center;
-}
-tr:hover {
-    background-color: #71bdf1; /* 或者你喜欢的其他颜色 */
+#error_case {
+    background-color: #ffcccc; /* 背景颜色 */
+    border: 1px solid #ff0000; /* 边框颜色 */
+    color: #ff0000; /* 文字颜色 */
+    padding: 10px; /* 内边距 */
+    margin: 10px 0; /* 外边距 */
+    border-radius: 5px; /* 边框圆角 */
 }

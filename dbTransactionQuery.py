@@ -1,7 +1,7 @@
 # dbTransactionQuery.py
 # 执行query代码，还会检查数据的合法性
 
-from dbCustomerQuery import connect_db
+from dbCustomerQuery import connect_db,get_ids
 
 
 def transaction_list():
@@ -13,6 +13,12 @@ def transaction_list():
 
 
 def add_transaction(customer_id, trainer_id, program_level, monthly_fee, assignment_date):
+    trainer_exit = get_ids('trainer')
+    customer_exit = get_ids('customer')
+    if customer_id not in customer_exit:
+        return "Customer does not exist"
+    if trainer_id not in trainer_exit:
+        return "Trainer does not exist"
     if program_level not in ['Gold', 'Silver', 'Bronze']:
         return "Invalid Program Level"
     query = '''INSERT INTO transaction (customerid, trainerid, programlevel, monthlyfee, assignmentdate)

@@ -3,13 +3,15 @@ function allInvisible() {
     const areas = ['Customer', 'customerTable', 'insertCustomer', 'searchCustomer',
                             'Trainer', 'trainerTable', 'insertTrainer', 'searchTrainer',
                             'Transaction', 'transactionTable', 'insertTransaction', 'searchTransaction',
-                            'overAge', 'overAgeResult', 'fitGold', 'clientNumber', 'moneyReport'];
+                            'overAge', 'overAgeResult', 'fitGold', 'clientNumber', 'moneyReport',
+                            'error_case'];
     areas.forEach(area => {
         const element = document.getElementById(area);
         if (element) {
             element.style.display = 'none';
         }
     });
+
 }
 // 设置customer是否可见
 function customerVisibility() {
